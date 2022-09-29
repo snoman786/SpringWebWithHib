@@ -1,0 +1,15 @@
+services:
+  testdb:
+    image: mysql-testdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - testdbdata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+  testapp:
+    image: testapp
+    ports:
+      - "7070:8080"
+volumes:
+  testdbdata: {}

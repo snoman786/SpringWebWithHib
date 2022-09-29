@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpringWebWithHib:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>SpringWebWithHib</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="SpringWebWithHib.war">
+      <element id="artifact" artifact-name="SpringWebWithHib:war exploded" />
+    </root>
+  </artifact>
+</component>
