@@ -1,0 +1,10 @@
+com\noman\syed\config\WebAppConfig.class
+com\noman\syed\model\Person.class
+com\noman\syed\controller\PersonController.class
+com\noman\syed\dao\PersonDaoImpl.class
+com\noman\syed\service\PersonServiceImpl.class
+com\noman\syed\service\CommonService.class
+com\noman\syed\dao\PersonDao.class
+com\noman\syed\service\PersonService.class
+com\noman\syed\dao\NewPersonDaoImpl.class
+com\noman\syed\config\PartialWebConfig.class
