@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: deploy
+metadata:
+  name: testapp
+  labels:
+    app: testapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testapp
+  template:
+    metadata:
+      labels:
+        app: testapp
+    spec:
+      containers:
+        - name: testapp
+          image: snoman1/spring-hib-app:V1
+          ports:
+            - name: app-port
+              containerPort: 8080
+      initContainers:
+        - name: init-mydb
+          image: busybox
+          command: ['sh', '-c', 'until nslookup testdb; do echo waiting for mydb; sleep 2; done;']

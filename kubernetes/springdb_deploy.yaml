@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: deploy
+metadata:
+  name: testdb
+  labels:
+    app: testdb
+spec:
+  selector:
+    matchLabel:
+      app: testdb
+  replica: 1
+  template:
+    metadata:
+      labels:
+        app: testdb
+    spec:
+      containers:
+        - name: testdb
+          image: snoman1/spring-hib-db:V1
+          args:
+            - "--ignore-db-dir=lost+found"
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: spring-db-data
+          ports:
+            - name: testdb-port
+              containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: springweb-secret
+                  key: db-pass
+      nodeSelector:
+        # This is to make sure that depolyment should be created in same zone where EBS is created .
+        #Make sure to create a label for this zone
+        zone: us-east-1a
+      volumes:
+        - name: spring-db-data
+          # This AWS EBS volume must already exist.
+          # This EBS Volume should exist in us-east-1a zone
+          awsElasticBlockStore:
+            volumeID: <Replace Me>
+            fsType: ext4
