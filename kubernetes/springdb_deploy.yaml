@@ -1,14 +1,14 @@
 apiVersion: apps/v1
-kind: deploy
+kind: Deployment
 metadata:
   name: testdb
   labels:
     app: testdb
 spec:
   selector:
-    matchLabel:
+    matchLabels:
       app: testdb
-  replica: 1
+  replicas: 1
   template:
     metadata:
       labels:
