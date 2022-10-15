@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: testdb
-          image: snoman1/spring-hib-db:V1
+          image: snoman1/spring-hib-db:V2
           args:
             - "--ignore-db-dir=lost+found"
           volumeMounts:
@@ -40,5 +40,5 @@ spec:
           # This AWS EBS volume must already exist.
           # This EBS Volume should exist in us-east-1a zone
           awsElasticBlockStore:
-            volumeID: <Replace Me>
+            volumeID: vol-051bb5fa1949b18c6
             fsType: ext4

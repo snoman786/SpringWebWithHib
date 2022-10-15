@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: testapp
-          image: snoman1/spring-hib-app:V1
+          image: snoman1/spring-hib-app:V2
           ports:
             - name: app-port
               containerPort: 8080
