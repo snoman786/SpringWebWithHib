@@ -6,7 +6,7 @@ services:
     volumes:
       - testdbdata:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=admin
   testapp:
     image: snoman1/spring-hib-app:V1
     ports:
