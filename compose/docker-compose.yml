@@ -1,6 +1,6 @@
 services:
   testdb:
-    image: dbimg
+    image: snoman1/spring-hib-db:V2
     ports:
       - "3306:3306"
     volumes:
@@ -8,7 +8,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=admin
   testapp:
-    image: appimg
+    image: snoman1/spring-hib-app:V2
     ports:
       - "7070:8080"
 volumes:
